@@ -47,7 +47,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
         // 作为分布式唯一标识
         String ticket = UUID.randomUUID().toString();
-        request.getSession().setAttribute("userTicket", ticket);
+        request.getSession().setAttribute(ticket, user);
         return ApiResponse.success(ticket); // 返回ticket
     }
 }

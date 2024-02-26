@@ -3,6 +3,7 @@ package me.xcx.seckill.exception;
 import me.xcx.seckill.vo.ApiResponse;
 import me.xcx.seckill.vo.ApiResponseStatus;
 import org.springframework.validation.BindException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

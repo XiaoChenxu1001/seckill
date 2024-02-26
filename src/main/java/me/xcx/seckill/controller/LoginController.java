@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
 
     @Autowired
-    @Qualifier(value = "userServiceImpl")
     private IUserService userService;
 
     // TODO "" 和 "/" 是有去别的，字符串匹配

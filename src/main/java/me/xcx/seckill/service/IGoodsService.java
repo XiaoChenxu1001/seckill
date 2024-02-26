@@ -2,6 +2,9 @@ package me.xcx.seckill.service;
 
 import me.xcx.seckill.entity.Goods;
 import com.baomidou.mybatisplus.extension.service.IService;
+import me.xcx.seckill.vo.GoodsVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IGoodsService extends IService<Goods> {
 
+    List<GoodsVo> queryGoodsVoList();
 }

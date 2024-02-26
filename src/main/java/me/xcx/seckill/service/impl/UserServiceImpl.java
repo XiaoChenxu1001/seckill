@@ -50,4 +50,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         request.getSession().setAttribute(ticket, user);
         return ApiResponse.success(ticket); // 返回ticket
     }
+
+    /**
+     * 根据ticket凭证获得User
+     * 可以是session也可以是分布式session等。
+     */
+    @Override
+    public User getUserByTicket(String userTicket, HttpServletRequest request) {
+
+        return null;
+    }
 }

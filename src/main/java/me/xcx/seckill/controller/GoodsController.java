@@ -1,13 +1,19 @@
 package me.xcx.seckill.controller;
 
-import ch.qos.logback.core.model.Model;
 import jakarta.servlet.http.HttpServletRequest;
+import me.xcx.seckill.entity.Goods;
 import me.xcx.seckill.entity.User;
-import me.xcx.seckill.exception.GlobalException;
+import me.xcx.seckill.service.IGoodsService;
 import me.xcx.seckill.utils.CookieUtils;
+import me.xcx.seckill.vo.GoodsVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * <p>
@@ -18,16 +24,23 @@ import org.springframework.stereotype.Controller;
  * @since 2024-02-26
  */
 @Controller
+@RequestMapping("/goods")
 public class GoodsController {
 
-    @GetMapping("/goods")
-    public String goodsList(Model model, HttpServletRequest request) {
-        String userTicket = CookieUtils.getCookieValue(request, "userTicket");
-        User user = (User) request.getSession().getAttribute(userTicket);
-        if (null == user) {
-            return "login";
-        }
+    @Autowired
+    IGoodsService goodsService;
+
+    @GetMapping("")
+    public String goodsList(Model model, User user, HttpServletRequest request) {
+        List<GoodsVo> goodsList = goodsService.queryGoodsVoList();
+        model.addAttribute("goodsList", goodsList);
         return "goodsList";
     }
+
+    @GetMapping("/datail")
+    public String goodsDetail(Model model, User user, HttpServletRequest request) {
+        return "goodsDetail";
+    }
+
 
 }

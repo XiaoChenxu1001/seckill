@@ -4,7 +4,11 @@ import me.xcx.seckill.entity.Goods;
 import me.xcx.seckill.mapper.GoodsMapper;
 import me.xcx.seckill.service.IGoodsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import me.xcx.seckill.vo.GoodsVo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +21,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements IGoodsService {
 
+    @Autowired
+    GoodsMapper goodsMapper;
+
+    @Override
+    public List<GoodsVo> queryGoodsVoList() {
+        return goodsMapper.queryGoodsVoList();
+    }
 }

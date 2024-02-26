@@ -19,5 +19,5 @@ public interface IUserService extends IService<User> {
     ApiResponse<String> login(LoginVo loginVo, HttpServletRequest request);
 
 
-
+    User getUserByTicket(String userTicket, HttpServletRequest request);
 }

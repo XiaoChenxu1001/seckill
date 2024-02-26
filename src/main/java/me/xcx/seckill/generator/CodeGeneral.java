@@ -29,8 +29,8 @@ public class CodeGeneral {
 
                 }))
                 .packageConfig(builder -> {
-                    builder.parent("me.xcx") // 设置父包名
-                            .moduleName("seckill") // 设置父包模块名
+                    builder.parent("me.xcx.seckill") // 设置父包名
+//                            .moduleName("") // 设置父包模块名
                             .pathInfo(Collections.singletonMap(OutputFile.xml, "D:\\develop\\2024\\work\\seckill\\src\\main\\resources\\mapper")); // 设置mapperXml生成路径
                 })
                 .strategyConfig(builder -> {
